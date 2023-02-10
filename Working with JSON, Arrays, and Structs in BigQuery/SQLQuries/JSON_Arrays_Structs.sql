@@ -131,26 +131,9 @@ FROM racing.race_results AS r, r.participants;
 
 
 #standardSQL
-SELECT COUNT(participants.name) AS racer_count
-FROM racing.race_results;
-
-
-#standardSQL
 SELECT COUNT(p.name) AS racer_count
 FROM racing.race_results AS r, UNNEST(r.participants) AS p;
 
-
-#standardSQL
-SELECT
-  p.name,
-  SUM(split_times) as total_race_time
-FROM racing.race_results AS r
-, r.participants AS p
-, p.splits AS split_times
-WHERE
-GROUP BY
-ORDER BY
-;
 
 
 #standardSQL
